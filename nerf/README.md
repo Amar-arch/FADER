@@ -1,10 +1,10 @@
-# FINER: Flexible spectral-bias tuning in Implicit NEural Representation by Variable-periodic Activation Functions
+# FADER:Frequency ADaptive implicit nEuRal representations
 
-To better verify the advantages of FINER for representing high-frequency components, we follow the experimental setting from [WIRE](https://arxiv.org/pdf/2301.05187) (Sec. 4.3), where only 25 images are used for training, and each image is downsampled to a resolution of $200\times200$.
+To better verify the advantages of FADER for representing high-frequency components, we follow the experimental setting from [WIRE](https://arxiv.org/pdf/2301.05187) (Sec. 4.3), where only 25 images are used for training, and each image is downsampled to a resolution of $200\times200$.
 
-Thanks to [torch-ngp](https://github.com/ashawkey/torch-ngp), we made only minor modifications. Specifically, we removed positional encoding and replace the ReLU-MLP with FINER, following the [WIRE code](https://github.com/vishwa91/wire/files/12441797/network.txt).
+Thanks to [torch-ngp](https://github.com/ashawkey/torch-ngp) and [finer] (https://github.com/liuzhen0212/FINER)
 
-Finally, please add the **[network_finer.py](network_finer.py)** file to the [torch-ngp/nerf](https://github.com/ashawkey/torch-ngp/tree/main/nerf) directory, and replace [torch-ngp/nerf/provider.py](https://github.com/ashawkey/torch-ngp/blob/main/nerf/provider.py) and [torch-ngp/main_nerf.py](https://github.com/ashawkey/torch-ngp/blob/main/main_nerf.py) with the modified **[provider.py](provider.py)** and **[main_nerf.py](main_nerf.py)** files, respectively. 
+Finally, please add the **[network_siren_1.py](network_siren_1.py)** file to the [torch-ngp/nerf](https://github.com/ashawkey/torch-ngp/tree/main/nerf) directory, and use **[provider.py](provider.py)** and **[main_nerf.py](main_nerf.py)** files, respectively. 
 
 ```bash
 OMP_NUM_THREADS=8 CUDA_VISIBLE_DEVICES=0 python main_nerf.py ../data/nerf_synthetic/drums \
